@@ -43,7 +43,7 @@ public class Product extends javax.swing.JFrame {
     } 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -279,7 +279,7 @@ public class Product extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //Cancel
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
     jButton1.setEnabled(true);
             txtproductname.setText("");
             txtcostprice.setText("");
@@ -292,17 +292,17 @@ public class Product extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jButton4ActionPerformed
     //Close
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    public void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    public void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        Dashboard d = new Dashboard();
        d.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String productname = txtproductname.getText();
        String description = txtdescription.getText();
        String cost = txtcostprice.getText();
@@ -318,8 +318,8 @@ public class Product extends javax.swing.JFrame {
             pat.setString(5, qty);
             pat.setString(6, level);
             pat.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Product Added Successfully");
-            
+           // JOptionPane.showMessageDialog(this, "Product Added Successfully");
+            TestProgress testProgress = new TestProgress();
             txtproductname.setText("");
             txtcostprice.setText("");
             txtdescription.setText("");
@@ -332,7 +332,7 @@ public class Product extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
          df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -345,7 +345,7 @@ public class Product extends javax.swing.JFrame {
             jButton1.setEnabled(false);
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -365,8 +365,8 @@ public class Product extends javax.swing.JFrame {
             pat.setString(6, level);
             pat.setInt(7, id);
             pat.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Product Updated Successfully");
-            
+            //JOptionPane.showMessageDialog(this, "Product Updated Successfully");
+            TestProgress testProgress = new TestProgress();
             txtproductname.setText("");
             txtcostprice.setText("");
             txtdescription.setText("");
@@ -379,7 +379,7 @@ public class Product extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -388,7 +388,8 @@ public class Product extends javax.swing.JFrame {
             pat = conn.prepareStatement("delete from product where id = ?");
             pat.setInt(1,id);
             pat.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Product Deleted Successfully");
+            //JOptionPane.showMessageDialog(this, "Product Deleted Successfully");
+            TestProgress testProgress = new TestProgress();
             loadproduct();
             } catch (SQLException ex) {
             Logger.getLogger(Vendor.class.getName()).log(Level.SEVERE, null, ex);
@@ -456,28 +457,28 @@ public class Product extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtcostprice;
-    private javax.swing.JTextField txtdescription;
-    private javax.swing.JTextField txtproductname;
-    private javax.swing.JTextField txtquantity;
-    private javax.swing.JTextField txtreorderlevel;
-    private javax.swing.JTextField txtretailprice;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel7;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField txtcostprice;
+    public javax.swing.JTextField txtdescription;
+    public javax.swing.JTextField txtproductname;
+    public javax.swing.JTextField txtquantity;
+    public javax.swing.JTextField txtreorderlevel;
+    public javax.swing.JTextField txtretailprice;
     // End of variables declaration//GEN-END:variables
 }

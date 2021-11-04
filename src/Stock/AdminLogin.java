@@ -5,8 +5,17 @@
  */
 package Stock;
 import java.sql.*;
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+import javax.swing.JWindow;
+import javax.swing.KeyStroke;
+import javax.swing.event.MenuKeyEvent;
+
+import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
+import java.awt.AWTException;   
+import java.awt.Robot;   
+import java.awt.event.KeyEvent;  
 /**
  *
  * @author Dhaya
@@ -19,7 +28,7 @@ public class AdminLogin extends javax.swing.JFrame {
     public AdminLogin() {
         initComponents();
     }
-    private boolean validate_login(String username,String password) {
+    public boolean validate_login(String username,String password) {
    try{           
        Class.forName("com.mysql.cj.jdbc.Driver");  // MySQL database connection
        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stockmanagement", "root", "");     
@@ -44,7 +53,7 @@ public class AdminLogin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -109,18 +118,24 @@ public class AdminLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(username.getText().length()==0)  // Checking for empty field
-      JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
-   else if(password.getPassword().length==0)  // Checking for empty field
-      JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
+	public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(username.getText().length()==0){ // Checking for empty field
+    	//JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
+    	TestProgress testProgress = new TestProgress();
+    	
+       	}
+   else if(password.getPassword().length==0) {  // Checking for empty field
+	   
+	   //JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
+	   TestProgress testProgress = new TestProgress();
+       }
    else{
        String user = username.getText();   // Collecting the input
        char[] pass = password.getPassword(); // Collecting the input
        String pwd = String.copyValueOf(pass);  // converting from array to string
        if(validate_login(user,pwd)){
-          JOptionPane.showMessageDialog(null, "Correct Login Credentials");
+          //JOptionPane.showMessageDialog(null, "Correct Login Credentials");
+          
           AdminLogin al = new AdminLogin();
           al.setVisible(false);
           dispose();
@@ -128,7 +143,7 @@ public class AdminLogin extends javax.swing.JFrame {
           d.setVisible(true);
        }
        else{
-          JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");
+          //JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");
           Dashboard d = new Dashboard();
           d.setVisible(false);
        }
@@ -172,12 +187,12 @@ public class AdminLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JTextField username;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JPasswordField password;
+    public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 
 }
