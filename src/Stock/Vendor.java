@@ -43,7 +43,7 @@ public final class Vendor extends javax.swing.JFrame {
     }    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    public void initComponents() {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -243,7 +243,7 @@ public final class Vendor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //Function Event To Add a Record in Vendor Database
-    public void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         try {
             String VendorName =  txtvendor.getText();
             String phone =  txtphone.getText();
@@ -257,8 +257,8 @@ public final class Vendor extends javax.swing.JFrame {
             pat.setString(3,email);
             pat.setString(4,pincode);
             pat.executeUpdate();
-            //JOptionPane.showMessageDialog(this, "Vendor Added Successfully");
-            TestProgress testProgress = new TestProgress();
+            JOptionPane.showMessageDialog(this, "Vendor Added Successfully");
+            
             
             txtvendor.setText("");
             txtEmail.setText("");
@@ -274,7 +274,7 @@ public final class Vendor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton5ActionPerformed
     // selecting the row from table via mouse click
-    public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
             df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -285,7 +285,7 @@ public final class Vendor extends javax.swing.JFrame {
             jButton5.setEnabled(false);
     }//GEN-LAST:event_jTable1MouseClicked
     //Updating 
-    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -302,8 +302,7 @@ public final class Vendor extends javax.swing.JFrame {
             pat.setString(4,pincode);
             pat.setInt(5,id);
             pat.executeUpdate();
-            //JOptionPane.showMessageDialog(this, "Vendor Edited Successfully");
-            TestProgress testProgress = new TestProgress();
+            JOptionPane.showMessageDialog(this, "Vendor Edited Successfully");
             jButton5.setEnabled(true);
             txtvendor.setText("");
             txtEmail.setText("");
@@ -317,7 +316,7 @@ public final class Vendor extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jButton1ActionPerformed
     // Delete 
-    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        df = (DefaultTableModel)jTable1.getModel();
             int selected = jTable1.getSelectedRow();
             int id = Integer.parseInt(df.getValueAt(selected,0).toString());
@@ -326,8 +325,7 @@ public final class Vendor extends javax.swing.JFrame {
             pat = conn.prepareStatement("delete from vendor where id = ?");
             pat.setInt(1,id);
             pat.executeUpdate();
-            //JOptionPane.showMessageDialog(this, "Vendor Deleted Successfully");
-            TestProgress testProgress = new TestProgress();
+            JOptionPane.showMessageDialog(this, "Vendor Deleted Successfully");
             jButton5.setEnabled(true);
             txtvendor.setText("");
             txtEmail.setText("");
@@ -340,7 +338,7 @@ public final class Vendor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
     //Cancel
-    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
             jButton5.setEnabled(true);
             txtvendor.setText("");
             txtEmail.setText("");
@@ -350,11 +348,11 @@ public final class Vendor extends javax.swing.JFrame {
             load();
     }//GEN-LAST:event_jButton3ActionPerformed
     //Close
-    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         Dashboard d = new Dashboard();
         d.setVisible(true);
         this.dispose();
@@ -424,23 +422,23 @@ public final class Vendor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
-    public javax.swing.JButton jButton5;
-    public javax.swing.JButton jButton6;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
-    public javax.swing.JPanel jPanel1;
-    public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
-    public javax.swing.JTextField txtEmail;
-    public javax.swing.JTextField txtPincode;
-    public javax.swing.JTextField txtphone;
-    public javax.swing.JTextField txtvendor;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtPincode;
+    private javax.swing.JTextField txtphone;
+    private javax.swing.JTextField txtvendor;
     // End of variables declaration//GEN-END:variables
 }
