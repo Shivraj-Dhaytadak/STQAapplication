@@ -1,23 +1,19 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import java.util.Scanner;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import javax.swing.JDialog;
-import javax.swing.WindowConstants;
-import javax.swing.event.MenuKeyEvent;
+import Stock.*;
+import junit.framework.Assert;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.w3c.dom.events.Event;
-
-import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
-
-import Stock.AdminLogin;
-import Stock.Dashboard;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-;public class TestAdmin {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class TestAdmin {
 	
 	@Test
+	@Order(1)
 	public void loginSuccess() {
 		String adminUsernameString = "admin";
 		String adminPasswordString = "admin@123";
@@ -26,9 +22,11 @@ import java.awt.event.KeyEvent;
 		al.password.setText(adminPasswordString);
 		al.jButton1.doClick();
 		boolean confirmString = al.validate_login(adminUsernameString, adminPasswordString);
-		Assert.assertTrue(confirmString);
+		assertTrue(confirmString);
 	}
+	
 	@Test
+	@Order(2)
 	public void loginFailed() {
 		String adminUsernameString = "admin";
 		String adminPasswordString = "admin123";
@@ -38,9 +36,11 @@ import java.awt.event.KeyEvent;
 		al.password.setText(adminPasswordString);
 		al.jButton1.doClick();
 		boolean confirmString = al.validate_login(adminUsernameString, adminPasswordString);
-		Assert.assertFalse(confirmString);
+		assertFalse(confirmString);
 	}
+	
 	@Test
+	@Order(3)
 	public void EmptyField() {
 		String adminUsernameString = "";
 		String adminPasswordString = "";
@@ -50,9 +50,11 @@ import java.awt.event.KeyEvent;
 		al.password.setText(adminPasswordString);
 		al.jButton1.doClick();
 		boolean confirmString = al.validate_login(adminUsernameString, adminPasswordString);
-		Assert.assertFalse(confirmString);
+		assertFalse(confirmString);
 	}
+	
 	@Test
+	@Order(4)
 	public void logout() {
 		String adminUsernameString = "admin";
 		String adminPasswordString = "admin@123";
@@ -62,6 +64,6 @@ import java.awt.event.KeyEvent;
 		al.jButton1.doClick();
 		Dashboard db = new Dashboard();
 		db.jButton4.doClick();
-		Assert.assertTrue(true);
+		assertTrue(true);
 	}
 }
